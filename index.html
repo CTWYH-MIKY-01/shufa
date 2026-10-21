@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="书法进阶">
+<meta name="theme-color" content="#7a3b2e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>书法进阶练习 · 多宝塔碑</title>
 <style>
 :root{
@@ -1724,6 +1730,15 @@ function init(){
   renderHome();
 }
 window.addEventListener('DOMContentLoaded',init);
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function (err) {
+      console.log('SW 注册失败:', err);
+    });
+  });
+}
 </script>
 </body>
 </html>
